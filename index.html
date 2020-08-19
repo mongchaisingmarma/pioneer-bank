@@ -77,20 +77,26 @@
             //const depositAmount = document.getElementById("depositAmount").value;
             //const depositNumber = parseFloat(depositAmount);
             const depositNumber = getInputNumber("depositAmount");
-            
-            //const currentDeposit = document.getElementById("currentDeposit").innerText;
-            //const currentDepositNumber = parseFloat(currentDeposit);
-            //const totalDeposit = depositNumber + currentDepositNumber;
-            //document.getElementById("currentDeposit").innerText = totalDeposit;
-            updateSpanText("currentDeposit", depositNumber);
 
-            //const currentBalance = document.getElementById("currentBalance").innerText;
-            //const currentBalanceNumber = parseFloat(currentBalance);
-            //const totalBalance = depositNumber + currentBalanceNumber;
-            //document.getElementById("currentBalance").innerText = totalBalance;
-            updateSpanText("currentBalance", depositNumber);
+            if (depositNumber < 0) {
+                alert("Deposit Number can not be negative");
+                document.getElementById("depositAmount").value = "";
+            }
+            else{
+                //const currentDeposit = document.getElementById("currentDeposit").innerText;
+                //const currentDepositNumber = parseFloat(currentDeposit);
+                //const totalDeposit = depositNumber + currentDepositNumber;
+                //document.getElementById("currentDeposit").innerText = totalDeposit;
+                updateSpanText("currentDeposit", depositNumber);
 
-            document.getElementById("depositAmount").value = "";
+                //const currentBalance = document.getElementById("currentBalance").innerText;
+                //const currentBalanceNumber = parseFloat(currentBalance);
+                //const totalBalance = depositNumber + currentBalanceNumber;
+                //document.getElementById("currentBalance").innerText = totalBalance;
+                updateSpanText("currentBalance", depositNumber);
+
+                document.getElementById("depositAmount").value = "";
+            }
         });
 
         //withdraw event handler
